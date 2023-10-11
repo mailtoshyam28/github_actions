@@ -7,5 +7,7 @@ jobs:
     steps:
       - name: PRINT GTEETING
         run: echo "hello"
-      - name: PRINT done 
-        run: echo "done"
+      - name: PRINT done
+        run:  |
+           echo "First output"
+           echo "Second output"
