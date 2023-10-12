@@ -1,9 +1,13 @@
-name: context_action
+
+name: first_action
 on: [workflow_dispatch]
 jobs:
-  sample_1:
-    runs-on: self_hosted
+  sample:
+    runs-on: self-hosted
     steps:
-      - name: print github context
-        run: echo "shyam"
-        
+      - name: PRINT GTEETING
+        run: echo "hello"
+      - name: PRINT done
+        run:  |
+           echo "First output"
+           echo "Second output"
