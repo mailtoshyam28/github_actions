@@ -1,9 +1,0 @@
-name: context_action
-on: [workflow_dispatch]
-jobs:
-  sample:
-    runs-on: self_hosted
-    steps:
-      - name: print github context
-        run: echo "${{ toJSON(github) }}"
-        
