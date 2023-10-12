@@ -1,5 +1,5 @@
 
-name: greeting-self-hosted
+name: greeting-self-hosted_context
 on: [workflow_dispatch]
 jobs:
   sample-self-hosted:
