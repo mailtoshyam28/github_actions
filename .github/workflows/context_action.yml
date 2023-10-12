@@ -9,5 +9,5 @@ jobs:
         run: echo "hello"
       - name: PRINT done
         run:  |
-           echo "First output"
-           echo "${{toJSON(github)}}"
+           run: echo "First output"
+           run: echo "${{ toJSON(github) }}"
