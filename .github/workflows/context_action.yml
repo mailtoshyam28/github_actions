@@ -7,4 +7,4 @@ jobs:
       - name: PRINT GTEETING
         run: echo "hello"
       - name: PRINT done
-        run: echo "${{ toJSON(github) }}"
+        run: echo "hello"
