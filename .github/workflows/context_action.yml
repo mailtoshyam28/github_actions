@@ -3,7 +3,7 @@ name: greeting
 on: [workflow_dispatch]
 jobs:
   sample:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: PRINT GTEETING
         run: echo "hello"
