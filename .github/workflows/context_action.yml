@@ -1,6 +1,6 @@
 
 name: greeting-self-hosted_context
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
 jobs:
   sample-self-hosted:
     runs-on: self-hosted
