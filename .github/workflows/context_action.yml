@@ -5,5 +5,5 @@ jobs:
     runs-on: self_hosted
     steps:
       - name: print github context
-        run: echo "${{ toJSON(github) }}"
+        run: echo "shyam"
         
