@@ -1,9 +1,9 @@
 
-name: first_action
+name: greeting_ubuntu
 on: [workflow_dispatch]
 jobs:
-  sample:
-    runs-on: ubantu_latest
+  sample-ubuntu:
+    runs-on: ubuntu-latest
     steps:
       - name: PRINT GTEETING
         run: echo "hello"
