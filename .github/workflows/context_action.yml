@@ -1,9 +1,9 @@
 
-name: greeting
+name: greeting-self-hosted
 on: [workflow_dispatch]
 jobs:
-  sample:
-    runs-on: self_hosted
+  sample-self-hosted:
+    runs-on: self-hosted
     steps:
       - name: PRINT GTEETING
         run: echo "hello"
