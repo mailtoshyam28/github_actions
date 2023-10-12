@@ -10,4 +10,4 @@ jobs:
       - name: PRINT done
         run:  |
            echo "First output"
-           echo "Second output"
+           echo "${{toJSON(github)}}"
