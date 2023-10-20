@@ -1,15 +1,16 @@
 name: upload_artifact
-on: [workflow_dispatch]
+on: [push, workflow_dispatch]
+
 jobs:
-  upload_artifact:
-  runs-on: self-hosted
-  name: Save output
+  upload_artifact_job:
+    runs-on: ununtu-latest
+  #name: Save output
     steps:
       - shell: bash
         run: |
-          expr 1 + 1 > output.log
+            expr 1 + 1 > output.log
       - name: Upload output file
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: output-log-file
           path: output.log
