@@ -9,7 +9,7 @@ jobs:
       - shell: bash
         run: expr 1 + 1 > output.log
       - name: Upload output file
-      - uses: actions/upload-artifact@v3
-        with:
-            name: output-log-file
-            path: output.log
+      # - uses: actions/upload-artifact@v3
+        # with:
+          #   name: output-log-file
+            # path: output.log
