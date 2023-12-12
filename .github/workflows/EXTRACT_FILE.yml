@@ -7,6 +7,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: extract file
-        shell: pwsh
+        #shell: pwsh
         run: Expand-Archive --LiteralPath C:\Users\sesa683520\PROJECTS\LNFUU\temp\snst_nmc3_su_3-0-0-12.exe -DestinationPath C:\Users\sesa683520\PROJECTS\LNFUU\temp\ -Force -Verbose
     
