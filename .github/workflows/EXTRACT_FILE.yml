@@ -1,0 +1,12 @@
+name: extract file
+
+on: [workflow_dispatch]
+
+jobs:
+  extract_file:
+    runs-on: self-hosted
+    steps:
+      - name: extract file
+        shell: pwsh
+        run: Expand-Archive --LiteralPath C:\Users\sesa683520\PROJECTS\LNFUU\temp\snst_nmc3_su_3-0-0-12.exe -DestinationPath C:\Users\sesa683520\PROJECTS\LNFUU\temp\ -Force -Verbose
+    
