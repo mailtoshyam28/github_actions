@@ -20,9 +20,9 @@ jobs:
     needs: job1
     steps:
       - name: print values 
-        shell: powershell
+        #shell: psh
         env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
-        run: ${{ env.OUTPUT1 }} 
+        run : echo ${{ env.OUTPUT1 }} 
         #${{ env.OUTPUT2 }}
