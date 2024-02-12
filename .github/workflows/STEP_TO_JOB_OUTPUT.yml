@@ -19,7 +19,9 @@ jobs:
     runs-on: self-hosted
     needs: job1
     steps:
-      - env:
+      - name: print values 
+        shell: pwsh
+        env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
         run: echo ${{ env.OUTPUT1 }} 
