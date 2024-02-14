@@ -1,4 +1,4 @@
-name: STEP TO JOB OUTPUT
+v.name: STEP TO JOB OUTPUT
 
 on: [workflow_dispatch]
 
@@ -24,6 +24,6 @@ jobs:
         env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
-        run : echo 'value is ${{ OUTPUT1 }}'
+        run : echo 'value is ${{ env.OUTPUT1 }}'
         #run : echo "shyam"
         #${{ env.OUTPUT2 }}
