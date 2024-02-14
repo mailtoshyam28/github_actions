@@ -7,9 +7,9 @@ jobs:
     runs-on: self-hosted
     steps:
         - name: Set color
-          id: color-selector
+         # id: color-selector
           run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
         - name: Get color
           env:
-           SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+         #  SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
            run: echo "The selected color is $SELECTED_COLOR"
