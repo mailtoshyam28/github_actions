@@ -1,5 +1,7 @@
 name: Generate random failure steps context
-on: push
+#on: push
+on: [workflow_dispatch]
+
 jobs:
   randomly-failing-job:
     runs-on: ubuntu-latest
