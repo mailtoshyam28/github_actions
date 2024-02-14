@@ -7,7 +7,7 @@ jobs:
   runs-on: self-hosted
   steps:
     - name: Set color
-        # id: color-selector
+      id: color-selector
       run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
     - name: Get color
       #env:
