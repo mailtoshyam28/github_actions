@@ -3,9 +3,9 @@ name: SET OUTPUT PARAMETER
 on: [workflow_dispatch]
 
 jobs:
-  job1:
-    runs-on: self-hosted
-    steps:
+ job1:
+  runs-on: self-hosted
+  steps:
         - name: Set color
          # id: color-selector
           run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
