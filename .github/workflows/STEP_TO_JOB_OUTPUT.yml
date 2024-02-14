@@ -1,4 +1,4 @@
-v.name: STEP TO JOB OUTPUT
+name: STEP TO JOB OUTPUT
 
 on: [workflow_dispatch]
 
