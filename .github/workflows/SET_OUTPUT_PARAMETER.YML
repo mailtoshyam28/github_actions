@@ -1,4 +1,4 @@
-name: STEP OUTPUT PARAMETER
+name: SET OUTPUT PARAMETER
 
 on: [workflow_dispatch]
 
