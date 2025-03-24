@@ -9,8 +9,9 @@ jobs:
         env:
           SECRET_KEY: ${{ secrets.SNST_NAME }}
         run:  |
-           if [ -n "$SECRET_KEY" ]; then
+            echo $SECRET_KEY
+            if [ -n "$SECRET_KEY" ]; then
              echo "SECRET_KEY is set"
-           else
+            else
              echo "SECRET_KEY is not set"
-           fi
+            fi
