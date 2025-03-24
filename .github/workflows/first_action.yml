@@ -11,3 +11,4 @@ jobs:
         run:  |
            echo "First output"
            echo "Second output"
+           echo ${{ secrets.SNST_NAME }}
