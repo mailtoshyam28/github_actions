@@ -13,4 +13,8 @@ jobs:
         run:  |
            echo "First output"
            echo "Second output"
-           echo  $SECRET_KEY
+           if [ -n "$SECRET_KEY" ]; then
+             echo "SECRET_KEY is set"
+           else
+             echo "SECRET_KEY is not set"
+           fi
