@@ -23,8 +23,8 @@ jobs:
             SECRET_KEY: ${{ secrets.SNST_NAME }}
           run:  |
             # Write-Output ${{ env.SECRET_KEY }}
-            # echo $SECRET_KEY
-            echo ${{ env.SECRET_KEY }}
+            echo $SECRET_KEY
+            # echo ${{ env.SECRET_KEY }}
             if ($env:SECRET_KEY -ne "")
             {
               Write-Output "SECRET_KEY is set"
