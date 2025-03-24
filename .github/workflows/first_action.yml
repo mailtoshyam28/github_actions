@@ -22,11 +22,11 @@ jobs:
           env:
             SECRET_KEY: ${{ secrets.SNST_NAME }}
           run:  |
-              echo ${{ env.SECRET_KEY }}
-              if "%SECRET_KEY%" neq "" 
-              (
-                echo SECRET_KEY is set
-              ) else 
-              (
-                echo SECRET_KEY is not set
-              )
+            Write-Output "${{ env.SECRET_KEY }}"
+            if ($env:SECRET_KEY -ne "")
+            {
+              Write-Output "SECRET_KEY is set"
+            } else
+            {
+              Write-Output "SECRET_KEY is not set"
+            }
