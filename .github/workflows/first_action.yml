@@ -13,4 +13,4 @@ jobs:
         run:  |
            echo "First output"
            echo "Second output"
-           echo env.SECRET_KEY
+           echo  $SECRET_KEY
