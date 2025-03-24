@@ -15,3 +15,16 @@ jobs:
             else
              echo "SECRET_KEY is not set"
             fi
+  sample-windows:
+      runs-on: windows-latest
+      steps:
+        - name: Get Secret windows
+          env:
+            SECRET_KEY: ${{ secrets.SNST_NAME }}
+          run:  |
+              echo %SECRET_KEY%
+              if "%SECRET_KEY%" neq "" (
+                echo SECRET_KEY is set
+              ) else (
+                echo SECRET_KEY is not set
+              )
