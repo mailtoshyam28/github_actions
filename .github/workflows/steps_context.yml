@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   randomly-failing-job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       # - id: checkout
       #   uses: actions/checkout@v3
