@@ -25,7 +25,7 @@ jobs:
       - name: print values 
         shell: pwsh
         env:
-          OUTPUT1: ${{jobs.job1.outputs.output1}}
+          OUTPUT1: ${{job.job1.outputs.output1}}
           # OUTPUT2: ${{needs.job1.outputs.output2}}
         run : echo 'value is ${{ env.OUTPUT1 }}'
         #run : echo "shyam"
