@@ -16,7 +16,7 @@ jobs:
         run: echo "test=world" >> "$GITHUB_OUTPUT"
 
   job2:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: job1
     steps:
       - name: print values 
