@@ -1,3 +1,4 @@
+name: CHECK OS RUNNER
 on: workflow_dispatch
 
 jobs:
