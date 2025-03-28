@@ -1,4 +1,4 @@
-name: CONTEXT TESTING
+name: PRINT CONTEXT
 on: workflow_dispatch
 
 jobs:
