@@ -8,7 +8,8 @@ jobs:
     steps:
       - name: Checkout code
         id: checkout
-        uses: actions/checkout@v2
+        # uses: actions/checkout@v2
+        # echo "dummy checkout"
       - name: Set environment variable
         if: steps.checkout.outcome == 'success'
         id: set_var
@@ -27,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        # uses: actions/checkout@v2
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
