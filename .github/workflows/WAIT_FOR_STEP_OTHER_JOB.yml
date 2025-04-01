@@ -1,0 +1,54 @@
+name: CI
+
+on: [push]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        id: checkout
+        uses: actions/checkout@v2
+      - name: Set environment variable
+        if: steps.checkout.outcome == 'success'
+        id: set_var
+        run: echo "MY_VAR=some_value" >> $GITHUB_ENV
+      - name: Save environment variable to artifact
+        if: steps.set_var.outcome == 'success'
+        run: echo "MY_VAR=some_value" > my_var.txt
+      - name: Upload artifact
+        if: steps.set_var.outcome == 'success'
+        uses: actions/upload-artifact@v2
+        with:
+          name: my_var
+          path: my_var.txt
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: my_var
+          path: .
+      - name: Wait for MY_VAR to be set
+        run: |
+          timeout=300  # Timeout in seconds (5 minutes)
+          start_time=$(date +%s)
+          while [ "$(cat my_var.txt)" != "MY_VAR=some_value" ]; do
+            echo "Waiting for MY_VAR to be set..."
+            sleep 5
+            current_time=$(date +%s)
+            elapsed_time=$((current_time - start_time))
+            echo "Elapsed time: $elapsed_time seconds"
+            if [ $elapsed_time -ge $timeout ]; then
+              echo "Timeout reached. Exiting..."
+              exit 1
+            fi
+          done
+      - name: Use environment variable
+        run: |
+          source my_var.txt
+          echo "The value of MY_VAR is $MY_VAR"
