@@ -1,4 +1,4 @@
-name: CI
+name: WAIT_FOR_STEP_OTHER_JOB
 
 on: [push]
 
