@@ -1,6 +1,6 @@
 name: WAIT_FOR_STEP_OTHER_JOB
 
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   job1:
