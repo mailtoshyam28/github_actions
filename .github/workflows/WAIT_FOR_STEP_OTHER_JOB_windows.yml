@@ -37,10 +37,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          # name: my_var
-          # path: .
           name: my_var
-          path: my_var.txt
+          path: .
+          # name: my_var
+          # path: my_var.txt
       - name: Wait for MY_VAR to be set
         run: |
           $timeout = 300  # Timeout in seconds (5 minutes)
