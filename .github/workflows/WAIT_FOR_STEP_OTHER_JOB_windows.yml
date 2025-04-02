@@ -46,10 +46,10 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          # name: my_var
-          # path: .
           name: my_var
-          path: my_var.txt
+          path: .
+          # name: my_var
+          # path: my_var.txt
           debug: true
           retry: 3
 
