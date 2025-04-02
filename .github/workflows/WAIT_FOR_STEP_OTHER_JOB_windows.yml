@@ -58,13 +58,6 @@ jobs:
 
       - name: Check if my_var.txt exists
         run: |
-          if (!(Test-Path -Path "my_var.txt" -PathType Leaf)) {
-            Write-Output "my_var.txt does not exist or is not a file."
-            exit 1
-          }
-
-      - name: Check if my_var.txt exists
-        run: |
           if (!(Test-Path -Path "my_var" -PathType Leaf)) {
             Write-Output "my_var does not exist or is not a file."
             exit 1
