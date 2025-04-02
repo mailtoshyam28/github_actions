@@ -43,7 +43,7 @@ jobs:
           # path: my_var.txt
       - name: Wait for MY_VAR to be set
         run: |
-          $timeout = 300  # Timeout in seconds (5 minutes)
+          $timeout = 50  # Timeout in seconds (5 minutes)
           $start_time = Get-Date
           # while ((Get-Content my_var.txt) -ne "MY_VAR=some_value") {
           while ((Get-ChildItem my_var.txt) -ne "MY_VAR=some_value") {
