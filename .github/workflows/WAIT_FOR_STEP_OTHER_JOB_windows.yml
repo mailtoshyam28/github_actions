@@ -29,11 +29,12 @@ jobs:
   job2:
     runs-on: windows-latest
     steps:
+      - name: wait for artifact 
+        run: Start-Sleep -Seconds 5
+
       - name: Checkout code
         # uses: actions/checkout@v2
         run: echo "dummy checkout in job2"
-      - name: wait for artifact 
-        run: Start-Sleep -Seconds 5
         
       - name: Download artifact
         uses: actions/download-artifact@v4
