@@ -41,8 +41,8 @@ jobs:
         with:
           # name: my_var
           # path: .
-          # name: my_var
-          # path: my_var.txt
+          name: my_var
+          path: my_var.txt
           debug: true
           retry: 3
       - name: Check if my_var.txt exists
