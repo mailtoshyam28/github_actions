@@ -32,6 +32,8 @@ jobs:
       - name: Checkout code
         # uses: actions/checkout@v2
         run: echo "dummy checkout in job2"
+      - name: wait for artifact 
+        run: Start-Sleep -Seconds 5
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
@@ -43,7 +45,8 @@ jobs:
         run: |
           $timeout = 300  # Timeout in seconds (5 minutes)
           $start_time = Get-Date
-          while ((Get-Content my_var.txt) -ne "MY_VAR=some_value") {
+          # while ((Get-Content my_var.txt) -ne "MY_VAR=some_value") {
+          while ((Get-ChildItem my_var.txt) -ne "MY_VAR=some_value") {
             Write-Output "Waiting for MY_VAR to be set..."
             Start-Sleep -Seconds 5
             $current_time = Get-Date
