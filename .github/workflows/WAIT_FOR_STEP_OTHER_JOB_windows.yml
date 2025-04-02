@@ -23,6 +23,8 @@ jobs:
         with:
           name: my_var
           path: my_var.txt
+      - name: List uploaded artifacts
+        run: ls -R
 
   job2:
     runs-on: windows-latest
