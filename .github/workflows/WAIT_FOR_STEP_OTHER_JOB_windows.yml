@@ -34,13 +34,30 @@ jobs:
         run: echo "dummy checkout in job2"
       - name: wait for artifact 
         run: Start-Sleep -Seconds 5
+        
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: my_var
-          path: .
+          # name: my_var
+          # path: .
           # name: my_var
           # path: my_var.txt
+          debug: true
+          retry: 3
+      - name: Check if my_var.txt exists
+        run: |
+          if (!(Test-Path -Path "my_var.txt" -PathType Leaf)) {
+            Write-Output "my_var.txt does not exist or is not a file."
+            exit 1
+          }
+
+      - name: Check if my_var.txt exists
+        run: |
+          if (!(Test-Path -Path "my_var.txt" -PathType Leaf)) {
+            Write-Output "my_var.txt does not exist or is not a file."
+            exit 1
+          }
+
       - name: Wait for MY_VAR to be set
         run: |
           $timeout = 50  # Timeout in seconds (5 minutes)
