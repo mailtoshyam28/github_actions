@@ -33,15 +33,15 @@ jobs:
   job2:
     runs-on: windows-latest
     steps:
-      - name: wait for artifact 
-        run: Start-Sleep -Seconds 5
+      # - name: wait for artifact 
+      #   run: Start-Sleep -Seconds 5
 
-      - name: Checkout code
-        # uses: actions/checkout@v2
-        run: echo "dummy checkout in job2"
+      # - name: Checkout code
+      #   # uses: actions/checkout@v2
+      #   run: echo "dummy checkout in job2"
         
-      - name: List directory contents before download
-        run: dir
+      # - name: List directory contents before download
+      #   run: dir
 
       - name: Wait for MY_VAR to be set
         run: |
