@@ -45,7 +45,7 @@ jobs:
 
       - name: Wait for MY_VAR to be set
         run: |
-          $timeout = 50  # Timeout in seconds (5 minutes)
+          $timeout = 80  # Timeout in seconds (5 minutes)
           $start_time = Get-Date
           while ($true) {
             try {
