@@ -51,17 +51,22 @@ jobs:
           {
             try 
             {
-              # Download artifact
+              # # Download artifact
+              # Write-Output "Downloading artifact..."
+              # # actions/download-artifact@v4 -name my_var -path . -debug true -retry 3
+              # uses: actions/download-artifact@v4
+              # with:
+              #   name: my_var
+              #   path: .
+              #   # name: my_var
+              #   # path: my_var.txt
+              #   # debug: true
+              #   # retry: 3
+              
+              # Download artifact using PowerShell
               Write-Output "Downloading artifact..."
-              # actions/download-artifact@v4 -name my_var -path . -debug true -retry 3
-              uses: actions/download-artifact@v4
-              with:
-                name: my_var
-                path: .
-                # name: my_var
-                # path: my_var.txt
-                # debug: true
-                # retry: 3
+              $artifactDownload = Invoke-WebRequest -Uri "https://github.com/actions/download-artifact@v4" -OutFile "my_var.zip"
+              Expand-Archive -Path "my_var.zip" -DestinationPath "."
 
               Write-Output "Artifact downloaded."
 
