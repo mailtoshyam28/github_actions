@@ -35,8 +35,8 @@ jobs:
     # env:
     #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: wait for artifact 
-        run: Start-Sleep -Seconds 15
+      # - name: wait for artifact 
+      #   run: Start-Sleep -Seconds 15
 
       # - name: Checkout code
       #   # uses: actions/checkout@v2
