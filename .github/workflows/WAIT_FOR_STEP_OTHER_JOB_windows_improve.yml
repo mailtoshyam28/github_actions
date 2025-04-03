@@ -63,10 +63,14 @@ jobs:
               #   # debug: true
               #   # retry: 3
               
-              # Download artifact using PowerShell
+              # # Download artifact using PowerShell
+              # Write-Output "Downloading artifact..."
+              # $artifactDownload = Invoke-WebRequest -Uri "https://github.com/actions/download-artifact@v4" -OutFile "my_var.zip"
+              # Expand-Archive -Path "my_var.zip" -DestinationPath "."
+
+              # Download artifact using GitHub CLI
               Write-Output "Downloading artifact..."
-              $artifactDownload = Invoke-WebRequest -Uri "https://github.com/actions/download-artifact@v4" -OutFile "my_var.zip"
-              Expand-Archive -Path "my_var.zip" -DestinationPath "."
+              gh run download --name my_var --dir .
 
               Write-Output "Artifact downloaded."
 
