@@ -32,8 +32,8 @@ jobs:
 
   job2:
     runs-on: windows-latest
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # env:
+    #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       # - name: wait for artifact 
       #   run: Start-Sleep -Seconds 5
@@ -70,9 +70,13 @@ jobs:
               # $artifactDownload = Invoke-WebRequest -Uri "https://github.com/actions/download-artifact@v4" -OutFile "my_var.zip"
               # Expand-Archive -Path "my_var.zip" -DestinationPath "."
 
-              # Download artifact using GitHub CLI
+              # # Download artifact using GitHub CLI
+              # Write-Output "Downloading artifact..."
+              # gh run download --name my_var --dir .
+
+              # Download artifact using actions/download-artifact
               Write-Output "Downloading artifact..."
-              gh run download --name my_var --dir .
+              $artifactDownload = Invoke-RestMethod -Uri "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" -Headers @{Authorization = "Bearer ${{ secrets.GITHUB_TOKEN }}"} -Method Get
 
               Write-Output "Artifact downloaded."
 
