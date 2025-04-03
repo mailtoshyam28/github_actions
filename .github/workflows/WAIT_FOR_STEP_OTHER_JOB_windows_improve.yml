@@ -78,9 +78,13 @@ jobs:
               # Write-Output "Downloading artifact..."
               # $artifactDownload = Invoke-RestMethod -Uri "https://api.github.com/repos/${{ github.repository }}/actions/artifacts" -Headers @{Authorization = "Bearer ${{ secrets.GITHUB_TOKEN }}"} -Method Get
 
+              # # Download artifact using actions/download-artifact
+              # Write-Output "Downloading artifact..."
+              # $artifactDownload = Start-Process -FilePath "powershell.exe" -ArgumentList "-Command", "actions/download-artifact@v4 -name my_var -path . -debug true -retry 3" -Wait -PassThru
+
               # Download artifact using actions/download-artifact
               Write-Output "Downloading artifact..."
-              $artifactDownload = Start-Process -FilePath "powershell.exe" -ArgumentList "-Command", "actions/download-artifact@v4 -name my_var -path . -debug true -retry 3" -Wait -PassThru
+              actions/download-artifact@v4 -name my_var -path . -debug true -retry 3
 
               
               Write-Output "Artifact downloaded."
