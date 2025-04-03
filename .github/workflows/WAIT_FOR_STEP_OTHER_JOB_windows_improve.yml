@@ -73,7 +73,8 @@ jobs:
                 Write-Output "MY_VAR is set."
                 break
               }
-            } catch
+            } 
+            catch
             {
               Write-Output "An error occurred, but continuing..."
             }
