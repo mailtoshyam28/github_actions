@@ -84,7 +84,7 @@ jobs:
 
               # Download artifact using actions/download-artifact
               Write-Output "Downloading artifact..."
-              actions/download-artifact@v4 -name my_var -path . -debug true -retry 3
+              actions/download-artifact@v4 -name my_var.txt -path . -debug true -retry 3
 
               
               Write-Output "Artifact downloaded."
