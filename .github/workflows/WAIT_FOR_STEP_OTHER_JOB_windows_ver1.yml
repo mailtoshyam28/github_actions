@@ -14,10 +14,11 @@ jobs:
       - name: Set environment variable
         # if: steps.checkout.outcome == 'success'
         id: set_var
-        run: echo "MY_VAR=some_value" >> $env:GITHUB_ENV
+        run: echo "MY_VAR=some_value_ver1" >> $env:GITHUB_ENV
+      
       - name: Save environment variable to artifact
         if: steps.set_var.outcome == 'success'
-        run: echo "MY_VAR=some_value_1" > my_var.txt
+        run: echo "MY_VAR=some_value_ver1" > my_var.txt
         
       # - name: List directory contents before upload
       #   run: dir
