@@ -21,12 +21,12 @@ jobs:
       - name: List directory contents before upload
         run: dir
       
-      - name: Upload artifact
-        if: steps.set_var.outcome == 'success'
-        uses: actions/upload-artifact@v4
-        with:
-          name: my_var
-          path: my_var.txt
+      # - name: Upload artifact
+      #   if: steps.set_var.outcome == 'success'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: my_var
+      #     path: my_var.txt
       - name: List uploaded artifacts
         run: ls -R
 
