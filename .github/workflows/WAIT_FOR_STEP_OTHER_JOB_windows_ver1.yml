@@ -66,8 +66,7 @@ jobs:
             Write-Host "Attempting to download artifact..."
             try
             {
-              actions/download-artifact@v4 --name my_var --path .
-              # --debug true --retry 3
+              actions/download-artifact@v4 --name my_var --path . --debug true --retry 3
               if ($LASTEXITCODE -eq 0) 
               {
                 Write-Host "Artifact downloaded successfully."
