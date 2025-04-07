@@ -58,7 +58,7 @@ jobs:
         id: download
         shell: pwsh
         run: |
-          $timeout = 60
+          $timeout = 180
           $interval = 10
           $end = (Get-Date).AddSeconds($timeout)
           while ((Get-Date) -lt $end)
