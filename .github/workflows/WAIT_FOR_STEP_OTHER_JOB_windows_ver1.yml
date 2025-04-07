@@ -33,25 +33,46 @@ jobs:
   job2:
     runs-on: windows-latest
     steps:
-      - name: wait for artifact 
-        run: Start-Sleep -Seconds 5
+      # - name: wait for artifact 
+      #   run: Start-Sleep -Seconds 5
 
-      - name: Checkout code
-        # uses: actions/checkout@v2
-        run: echo "dummy checkout in job2"
+      # - name: Checkout code
+      #   # uses: actions/checkout@v2
+      #   run: echo "dummy checkout in job2"
         
-      - name: List directory contents before download
-        run: dir
+      # - name: List directory contents before download
+      #   run: dir
+
+      # - name: Download artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: my_var
+      #     path: .
+      #     # name: my_var
+      #     # path: my_var.txt
+      #     debug: true
+      #     retry: 3
 
       - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: my_var
-          path: .
-          # name: my_var
-          # path: my_var.txt
-          debug: true
-          retry: 3
+        shell: pwsh
+        run: |
+          $timeout = 180
+          $interval = 10
+          $end = (Get-Date).AddSeconds($timeout)
+          while ((Get-Date) -lt $end)
+          {
+            try
+            {
+              actions/download-artifact@v4 --name my_var --path . --debug true --retry 3
+              break
+            }
+            catch
+            {
+              Write-Host "Retrying in $interval seconds..."
+              Start-Sleep -Seconds $interval
+            }
+          }
+        continue-on-error: true
 
       - name: List directory contents after download
         run: dir
