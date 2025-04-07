@@ -63,16 +63,17 @@ jobs:
           $end = (Get-Date).AddSeconds($timeout)
           while ((Get-Date) -lt $end)
           {
+            Write-Host "Attempting to download artifact..."
             try
             {
-              Write-Host "Attempting to download artifact..."
-              actions/download-artifact@v4 --name my_var --path . --debug true --retry 3
-              if ($?) 
+              actions/download-artifact@v4 --name my_var --path .
+              # --debug true --retry 3
+              if ($LASTEXITCODE -eq 0) 
               {
                 Write-Host "Artifact downloaded successfully."
                 exit 0
               }
-            } 
+            }
             catch
             {
               Write-Host "Artifact not available yet. Retrying in $interval seconds..."
