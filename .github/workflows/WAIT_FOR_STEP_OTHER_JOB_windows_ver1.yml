@@ -54,26 +54,28 @@ jobs:
       #     retry: 3
 
       - name: Download artifact
+        id: download
         shell: pwsh
         run: |
           $timeout = 180
           $interval = 10
           $end = (Get-Date).AddSeconds($timeout)
-          while ((Get-Date) -lt $end)
+          while ((Get-Date) -lt $end) 
           {
-            try
+            actions/download-artifact@v4 --name my_var --path . --debug true --retry 3
+            if ($?)
             {
-              actions/download-artifact@v4 --name my_var --path . --debug true --retry 3
-              break
-            }
-            catch
-            {
-              Write-Host "Retrying in $interval seconds..."
+              Write-Host "Artifact downloaded successfully."
+              exit 0
+            } else {
+              Write-Host "Artifact not available yet. Retrying in $interval seconds..."
               Start-Sleep -Seconds $interval
             }
           }
+          Write-Host "Timeout reached. Artifact not downloaded."
+          exit 1
         continue-on-error: true
-
+		  
       - name: List directory contents after download
         run: dir
 
