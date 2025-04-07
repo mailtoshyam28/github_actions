@@ -60,7 +60,7 @@ jobs:
       - name: Check if artifact is available
         id: check_artifact
         run: |
-          $attempts = 10
+          $attempts = 5
           $delay = 30
           for ($i = 0; $i -lt $attempts; $i++) {
             $artifacts = gh api -H "Accept: application/vnd.github.v3+json" /repos/${{ github.repository }}/actions/artifacts | ConvertFrom-Json
