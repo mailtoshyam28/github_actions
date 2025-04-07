@@ -54,6 +54,9 @@ jobs:
       #     retry: 3
 
 
+      - name: Set up GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+
       - name: Check if artifact is available
         id: check_artifact
         run: |
