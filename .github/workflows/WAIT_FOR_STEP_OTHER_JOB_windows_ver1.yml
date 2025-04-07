@@ -106,7 +106,7 @@ jobs:
           $start_time = Get-Date
           # while ((Get-Content my_var.txt) -ne "MY_VAR=some_value") {
           # while ((Get-ChildItem my_var.txt) -ne "MY_VAR=some_value") {
-          while ((Get-Content my_var.txt).Trim() -ne "MY_VAR=some_value") {
+          while ((Get-Content my_var.txt).Trim() -ne "MY_VAR=some_value_1") {
             Write-Output "Waiting for MY_VAR to be set..."
             Start-Sleep -Seconds 5
             $current_time = Get-Date
