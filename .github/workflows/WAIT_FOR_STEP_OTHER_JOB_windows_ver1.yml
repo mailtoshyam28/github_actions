@@ -54,34 +54,32 @@ jobs:
       #     retry: 3
 
 
-      - name: Download artifact with retry
-        id: download
-        shell: pwsh
+      - name: Check if artifact is available
+        id: check_artifact
         run: |
-          $timeout = 180
-          $interval = 10
-          $end = (Get-Date).AddSeconds($timeout)
-          while ((Get-Date) -lt $end)
-          {
-            Write-Host "Attempting to download artifact..."
-            try
-            {
-              actions/download-artifact@v4 --name my_var --path . --debug true --retry 3
-              if ($LASTEXITCODE -eq 0) 
-              {
-                Write-Host "Artifact downloaded successfully."
-                exit 0
-              }
-            }
-            catch
-            {
-              Write-Host "Artifact not available yet. Retrying in $interval seconds..."
-              Start-Sleep -Seconds $interval
+          $attempts = 10
+          $delay = 30
+          for ($i = 0; $i -lt $attempts; $i++) {
+            $artifacts = gh api -H "Accept: application/vnd.github.v3+json" /repos/${{ github.repository }}/actions/artifacts | ConvertFrom-Json
+            if ($artifacts.artifacts | Where-Object { $_.name -eq "my_var" }) {
+              Write-Output "Artifact found!"
+              echo "::set-output name=artifact_found::true"
+              exit 0
+            } else {
+              Write-Output "Artifact not found, waiting..."
+              Start-Sleep -Seconds $delay
             }
           }
-          Write-Host "Timeout reached. Artifact not downloaded."
+          Write-Output "Artifact not found after waiting, exiting."
+          echo "::set-output name=artifact_found::false"
           exit 1
-        continue-on-error: true
+
+      - name: Download artifact
+        if: steps.check_artifact.outputs.artifact_found == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: my_var
+          path: .
 
 
 
