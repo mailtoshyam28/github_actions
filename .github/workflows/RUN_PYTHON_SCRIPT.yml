@@ -8,5 +8,6 @@ jobs:
 
     steps:
     - name: Run script
-      run: cd C:\Users\sesa683520\PROJECTS\PYTHON_EXAMPLES
-      run: python get_data.py
+      run: |
+        cd C:\Users\sesa683520\PROJECTS\PYTHON_EXAMPLES
+        python get_data.py
