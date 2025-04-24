@@ -1,0 +1,12 @@
+name: RUN_PYTHON_SCRIPT
+
+on: [workflow_dispatch]
+
+jobs:
+  run-python-script:
+    runs-on: WTIN05208017L
+
+    steps:
+    - name: Run script
+      run: cd C:\Users\sesa683520\PROJECTS\PYTHON_EXAMPLES
+      run: python get_data.py
