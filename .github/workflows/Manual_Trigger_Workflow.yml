@@ -1,0 +1,33 @@
+name: Manual Trigger Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
+        required: false
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Show input values
+        run: |
+          echo "Log Level: ${{ github.event.inputs.logLevel }}"
+          echo "Tags: ${{ github.event.inputs.tags }}"
+      
+      - name: Run tests based on inputs
+        run: |
+          echo "Running tests with log level '${{ github.event.inputs.logLevel }}'"
+          if [ -n "${{ github.event.inputs.tags }}" ]; then
+            echo "Using tags: ${{ github.event.inputs.tags }}"
+          else
+            echo "No tags provided."
+          fi
