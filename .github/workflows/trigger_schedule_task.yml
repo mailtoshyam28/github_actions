@@ -7,5 +7,6 @@ jobs:
        - name: Run schedule task
          shell: powershell
          run: |
+          Start-Sleep -s 20
           cd C:\AutomationScripts
           Start-ScheduledTask -TaskName "RunUITests"
