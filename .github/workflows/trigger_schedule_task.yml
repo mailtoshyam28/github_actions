@@ -1,7 +1,7 @@
-name: greeting-self-hosted_context
+name: trigger schedule task
 on: [workflow_dispatch]
 jobs:
-  sample-self-hosted:
+ schedule-task:
     runs-on: self-hosted
     steps:
        - name: Run schedule task
