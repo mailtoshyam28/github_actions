@@ -1,0 +1,11 @@
+name: greeting-self-hosted_context
+on: [workflow_dispatch]
+jobs:
+  sample-self-hosted:
+    runs-on: self-hosted
+    steps:
+       - name: Run schedule task
+         shell: powershell
+         run: |
+          cd C:\AutomationScripts
+          Start-ScheduledTask -TaskName "RunUITests"
