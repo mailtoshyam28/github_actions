@@ -13,5 +13,3 @@ jobs:
           echo "Event type: ${{ github.event.action }}"
           echo "Environment: ${{ github.event.client_payload.env }}"
           echo "Version: ${{ github.event.client_payload.version }}"
-          echo "Environment: ${{ github.event.client_payload.env }}"
-          echo "Version: ${{ github.event.client_payload.version }}"
